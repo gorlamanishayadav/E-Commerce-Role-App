@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import "./App.css";
+
+import DeliveryLayout from "./components/DeliveryLayout";
+
+import Dashboard from "./pages/Dashboard";
+import AssignedDeliveries from "./pages/AssignedDeliveries";
+import DeliveryDetails from "./pages/DeliveryDetails";
+import DeliveryHistory from "./pages/DeliveryHistory";
+import Profile from "./pages/Profile";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+
+            <DeliveryLayout>
+
+                <Routes>
+
+                    <Route path="/" element={<Dashboard />} />
+
+                    <Route
+                        path="/assigned-deliveries"
+                        element={<AssignedDeliveries />}
+                    />
+
+                    <Route
+                        path="/delivery-details"
+                        element={<DeliveryDetails />}
+                    />
+
+                    <Route
+                        path="/delivery-history"
+                        element={<DeliveryHistory />}
+                    />
+
+                    <Route
+                        path="/profile"
+                        element={<Profile />}
+                    />
+
+                </Routes>
+
+            </DeliveryLayout>
+
+        </BrowserRouter>
+    );
 }
 
 export default App;
